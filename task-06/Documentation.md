@@ -16,18 +16,18 @@ The Vue HackerNews 2.0 application is an application that replicates the HackerN
    - Mounts the main application component (App.vue) to the DOM.  
    
 ##### 2. `App.vue`:
-The main application component that sets up the overall layout.
-Contains the header navigation (Top, New, Show, Ask, Jobs), which allows users to navigate between different sections.
-Uses the <router-view> element to render the component corresponding to the current route.
+   - The main application component that sets up the overall layout.
+   - Contains the header navigation (Top, New, Show, Ask, Jobs), which allows users to navigate between different sections.
+   - Uses the <router-view> element to render the component corresponding to the current route.
 
 ##### 3. `views/ItemView.vue`:
-Displays the details of a single story (or item).
-Fetches and displays the full details of a selected story, such as the title, author, score, comments, and content.
-Uses a route parameter (id) to identify which story to display.
+   - Displays the details of a single story (or item).
+   - Fetches and displays the full details of a selected story, such as the title, author, score, comments, and content.
+   - Uses a route parameter (id) to identify which story to display.
 
 ##### 4. `views/UserView.vue`:
-Displays the profile of a specific user.
-Fetches and displays user information, including the user's name, created date, karma, and submitted stories.
+   - Displays the profile of a specific user.
+   - Fetches and displays user information, including the user's name, created date, karma, and submitted stories.
 
         
 ### Vuex Store
