@@ -1,0 +1,3 @@
+Hey!
+this is the input file for go
+
