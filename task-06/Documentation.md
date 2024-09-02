@@ -48,6 +48,8 @@ The Vue HackerNews 2.0 application is an application that replicates the HackerN
 
 ### Routes
 
+The Vue HackerNews 2.0 project defines several routes to manage the different views in the application. These routes are configured in the src/router/index.js file using Vue Router. 
+
    `/top:` Displays the list of top stories.  
    `/new:` Displays the list of new stories.  
    `/show:` Displays the list of "Show HN" stories (user-submitted items).  
