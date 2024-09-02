@@ -48,7 +48,7 @@ The Vue HackerNews 2.0 application is an application that replicates the HackerN
 
 ### Routes
 
-The Vue HackerNews 2.0 project defines several routes to manage the different views in the application. These routes are configured in the src/router/index.js file using Vue Router. 
+The Vue HackerNews 2.0 project defines several routes to manage the different views in the application. These routes are configured in the `src/router/index.js` file using Vue Router. 
 
    `/top:` Displays the list of top stories.  
    `/new:` Displays the list of new stories.  
@@ -60,23 +60,23 @@ The Vue HackerNews 2.0 project defines several routes to manage the different vi
 
 ## Implementation Details
 
-    Client-Side Routing
-      Vue Router is used to manage client-side navigation:
-        Routes are defined in the router/index.js file. Each route corresponds to a specific view (e.g., TopStories, NewStories, ItemView).
-        Routes like /top, /new, /show, /ask, and /job are mapped to components that fetch and display the relevant stories.
+Client-Side Routing  
+      Vue Router is used to manage client-side navigation:  
+        Routes are defined in the router/index.js file. Each route corresponds to a specific view (e.g., TopStories, NewStories, ItemView).  
+        Routes like /top, /new, /show, /ask, and /job are mapped to components that fetch and display the relevant stories.  
 
-    Data Fetching:
-      The application fetches data from the HackerNews API using HTTP requests. The data includes:
-        Lists of stories (Top, New, Show, Ask, Jobs).
-        Individual story details.
-        User profiles.
-        API requests are made using the fetch function defined in api/index.js. This function uses the axios library to make GET requests to the HackerNews API.
+ Data Fetching  
+      The application fetches data from the HackerNews API using HTTP requests. The data includes:  
+        Lists of stories (Top, New, Show, Ask, Jobs).  
+        Individual story details.  
+        User profiles.  
+        API requests are made using the fetch function defined in api/index.js. This function uses the axios library to make GET requests to the HackerNews API.  
 
-    State Management with Vuex
-        The state is defined in the store/index.js file.
-        It holds the state of stories, users, and items fetched from the HackerNews API.
-        Actions like FETCH_LIST_DATA, FETCH_USER, and FETCH_ITEM are defined to asynchronously fetch data from the API and commit mutations to update the state.
-        Mutations like SET_ACTIVE_TYPE, SET_LIST, and SET_USER are used to directly modify the state in a reactive way.
+ State Management with Vuex  
+        The state is defined in the store/index.js file.  
+        It holds the state of stories, users, and items fetched from the HackerNews API.  
+        Actions like FETCH_LIST_DATA, FETCH_USER, and FETCH_ITEM are defined to asynchronously fetch data from the API and commit mutations to update the state.  
+        Mutations like SET_ACTIVE_TYPE, SET_LIST, and SET_USER are used to directly modify the state in a reactive way.  
 
         
     
