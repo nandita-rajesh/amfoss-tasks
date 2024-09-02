@@ -9,10 +9,10 @@ Vue HackerNews 2.0 is an application built with Vue.js. It mimics the functional
 
 ## Features
 
-  - View a list of top news stories
-  - View comments for each news story
-  - Navigate between different news stories and comments
-  - Search for specific news stories
+  **-** View a list of top news stories
+  **-** View comments for each news story
+  **-** Navigate between different news stories and comments
+  **-** Search for specific news stories
 
 ## Setup Instructions
 
@@ -29,15 +29,15 @@ npm install
 ```
 npm run dev
 ```
-  Navigate to http://localhost:8080/ to access the application.
+  4. Navigate to http://localhost:8080/ to access the application.
 
 ## Usage
 
-  - View News Stories: The homepage displays a list of top news stories. Click on a story to view more details.
-  - View Comments: Click on the comments link under each story to view and interact with comments.
-  - Search: Use the search functionality to find specific news stories.
+  **- View News Stories:** The homepage displays a list of top news stories. Click on a story to view more details.
+  **- View Comments:** Click on the comments link under each story to view and interact with comments.
+  **- Search:** Use the search functionality to find specific news stories.
 
 ## Contribution Guidelines
 
-  - Reporting Issues: Please report any issues or bugs using the GitHub Issues tab.
-  - Submitting Pull Requests: Fork the repository, make your changes, and submit a pull request with a description of your changes.
+  **- Reporting Issues:** Please report any issues or bugs using the GitHub Issues tab.
+  **- Submitting Pull Requests:** Fork the repository, make your changes, and submit a pull request with a description of your changes.
