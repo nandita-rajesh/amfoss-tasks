@@ -2,6 +2,21 @@
 ### Introduction
 Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursuing B-Tech in Computer Science.
 
+| Task List | Description | Status |
+| -------- | -------- | -------- |
+| Task-00 | Install Linux | Completed |
+| Task-01 | Type Maestro | Completed |
+| Task-02 | Terminal Chaos |  |
+| Task-03 | Hello, World! | Completed |
+| Task-04 | Gopal and his PagePal | Completed |
+| Task-05 | TerminalTrolly | Completed |
+| Task-06 | OpenDocs | Completed |
+| Task-07 | Pirate's Dilemma |  |
+| Task-08 | Blog Burst | Completed |
+| Task-09 | HERO-DEX! | Completed |
+| Task-10 | Operation Pixel Merge | Completed |
+
+
 ### Why you should choose me
 You should choose me because of my strong passion for software development and problem solving. I am committed to actively participate in all club projects, bringing creativity and dedication to every task. I enjoy learning about new concepts and  technologies, and would love working as a team. I am always ready to help my peers and learn from them as well. 
 
