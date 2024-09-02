@@ -17,9 +17,8 @@ Vue HackerNews 2.0 is an application built with Vue.js. It mimics the functional
 
 ### 1. Clone the Repository:
 
-`bash
-git clone https://github.com/vuejs/vue-hackernews-2.0.git
-cd vue-hackernews-2.0
+** git clone https://github.com/vuejs/vue-hackernews-2.0.git
+cd vue-hackernews-2.0 **
 
 ### 2. Install Dependencies:
 
