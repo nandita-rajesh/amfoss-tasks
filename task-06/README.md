@@ -33,14 +33,12 @@ npm run dev
 
 ## Usage
 
-  **- View News Stories:** The homepage displays a list of top news stories. Click on a story to view more details.
-  
-  **- View Comments:** Click on the comments link under each story to view and interact with comments.
-  
-  **- Search:** Use the search functionality to find specific news stories.
+  - **View News Stories:** The homepage displays a list of top news stories. Click on a story to view more details.
+  - **View Comments:** Click on the comments link under each story to view and interact with comments.
+  - **Search:** Use the search functionality to find specific news stories.
 
 ## Contribution Guidelines
 
-  **- Reporting Issues:** Please report any issues or bugs using the GitHub Issues tab.
+  - **Reporting Issues:** Please report any issues or bugs using the GitHub Issues tab.
   
-  **- Submitting Pull Requests:** Fork the repository, make your changes, and submit a pull request with a description of your changes.
+  - **Submitting Pull Requests:** Fork the repository, make your changes, and submit a pull request with a description of your changes.
