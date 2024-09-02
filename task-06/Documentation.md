@@ -9,11 +9,11 @@ The Vue HackerNews 2.0 application is an application that replicates the HackerN
 ### Components
 
 ##### 1. `main.js`:
-The application starts with the main.js file, where Vue is initialized:  
-    It imports necessary modules and components.  
-    Sets up the router using Vue Router for client-side navigation.  
-    Configures the store using Vuex for state management.  
-    Mounts the main application component (App.vue) to the DOM.  
+    - The application starts with the main.js file, where Vue is initialized.  
+    - It imports necessary modules and components.  
+    - Sets up the router using Vue Router for client-side navigation.  
+    - Configures the store using Vuex for state management.  
+    - Mounts the main application component (App.vue) to the DOM.  
    
 ##### 2. `App.vue`:
 The main application component that sets up the overall layout.
