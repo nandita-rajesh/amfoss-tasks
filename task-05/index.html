@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .product-catalog {
+            width: 60%;
+            overflow-y: auto;
+        }
+
+        .terminal {
+            width: 40%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .terminal-window {
+            background-color: #000;
+            height: 100%;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .terminal-output {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .terminal-input {
+            display: flex;
+        }
+
+        .prompt {
+            margin-right: 5px;
+        }
+
+        input[type="text"] {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        header{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 59%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgb(34, 32, 32);
+            background-color: #fff;
+            transition: all .45s ease;
+        }
+
+        .navbar{
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar a{
+            font-size: 16px;
+            font-weight: 400;
+            padding: 10px 25px;
+            margin: 0 5px;
+            background: transparent;
+            border-radius: 20%;
+            transition: all .45s ease;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .navbar a:hover{
+            background: #eef0f1;
+        }
+
+        .navbar a:active{
+            background: #eef0f1;
+        }
+
+        .icons{
+            display: flex;
+        }
+
+        .icons i{
+            height: 40px;
+            width: 40px;
+            background: #f1f4f5;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 15px;
+            transition: all .45s ease;
+        }
+
+        .icons i:hover{
+            transform: scale(0.9);
+        }
+
+        section{
+            padding: 120px 11% 90px;
+        }
+
+        .featured-products{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 27px;   
+        }
+
+        .product{
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .product img{
+            max-width: 100%;
+            height: 170px;
+            border-radius: 8px;
+        }
+
+        .product-id {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .product-price{
+            font-size: 1.1em;
+            color: #f00;
+            margin-top: 10px;
+        }
+
+        .product:hover{
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-catalog">
+            <header>
+                <a href="#" class="logo"><img src="logo.png" width="150" height="75" alt="Logo"></a>
+                <ul class="navbar">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <div class="icons">
+                    <a href="#"><i class="ri-search-line"></i></a>
+                    <a href="#"><i class="ri-heart-line"></i></a>
+                    <a href="#"><i class="ri-shopping-cart-line"></i></a>
+                </div>
+            </header>
+
+            <section class="feature">
+                <div class="center-text">
+                    <h2>Explore Products</h2>
+                </div>
+                <div class="featured-products" id="product-list">
+
+
+                </div>
+            </section>
+
+        </div>
+        <div class="terminal">
+            <div class="terminal-window">
+                <div class="terminal-output"></div>
+                <div class="terminal-input">
+                    <span class="prompt">$</span>
+                    <input type="text" placeholder="Enter command...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiUrl = 'https://fakestoreapi.com/products';
+            const productList = document.getElementById('product-list');
+            const cart = [];
+
+            function displayProducts(products) {
+                productList.innerHTML = '';
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'product';
+                    productDiv.dataset.id = product.id;
+
+                    const productImg = document.createElement('img');
+                    productImg.src = product.image;
+                    productImg.alt = product.title;
+
+                    const productId = document.createElement('div');
+                    productId.className = 'product-id';
+                    productId.textContent = `ID: ${product.id}`;
+
+                    const productTitle = document.createElement('div');
+                    productTitle.className = 'product-title';
+                    productTitle.textContent = product.title;
+
+                    const productPrice = document.createElement('div');
+                    productPrice.className = 'product-price';
+                    productPrice.textContent = `$${product.price.toFixed(2)}`;
+
+                    productDiv.appendChild(productId);
+                    productDiv.appendChild(productImg);
+                    productDiv.appendChild(productTitle);
+                    productDiv.appendChild(productPrice);
+
+                    productList.appendChild(productDiv);
+                });
+            }
+
+            function fetchProducts() {
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(products => {
+                        displayProducts(products);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        productList.innerHTML = 'Failed to load products.';
+                    });
+            }
+
+            fetchProducts();
+
+            const terminalOutput = document.querySelector('.terminal-output');
+            const terminalInput = document.querySelector('input[type="text"]');
+
+            function handleInput(command) {
+                const [cmd, ...args] = command.trim().split(' ');
+                switch (cmd) {
+                    case 'list':
+                        fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(products => {
+                                terminalOutput.textContent = 'Product List:\n'; 
+                                products.forEach(product => {
+                                    terminalOutput.textContent += `${product.id}: ${product.title} - $${product.price.toFixed(2)}\n`;
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error fetching data:', error);
+                                terminalOutput.textContent += 'Failed to load products.\n';
+                            });
+                        break;
+                    case 'details':
+                        if (args.length) {
+                            const productId = args[0];
+                            fetch(`${apiUrl}/${productId}`)
+                                .then(response => response.json())
+                                .then(product => {
+                                    terminalOutput.textContent += `\nProduct Details:\n`;
+                                    terminalOutput.textContent += `ID: ${product.id}\n`;
+                                    terminalOutput.textContent += `Title: ${product.title}\n`;
+                                    terminalOutput.textContent += `Price: $${product.price}\n`;
+                                    terminalOutput.textContent += `Description: ${product.description}\n`;
+                                })
+                                .catch(() => {
+                                    terminalOutput.textContent += `No details found for product ID: ${productId}\n`;
+                                });
+                        }
+                        break;
+                    case 'add':
+                        if (args.length) {
+                            const productId = args[0];
+                            if (!cart.includes(productId)) {
+                                cart.push(productId);
+                                terminalOutput.textContent += `Added product ID ${productId} to cart.\n`;
+                            } else {
+                                terminalOutput.textContent += `Product ID ${productId} is already in the cart.\n`;
+                            }
+                        }
+                        break;
+                    case 'remove':
+                        if (args.length) {
+                            const productId = args[0];
+                            const index = cart.indexOf(productId);
+                            if (index > -1) {
+                                cart.splice(index, 1);
+                                terminalOutput.textContent += `Removed product ID ${productId} from cart.\n`;
+                            } else {
+                                terminalOutput.textContent += `Product ID ${productId} is not in the cart.\n`;
+                            }
+                        }
+                        break;
+                    case 'cart':
+                        if (cart.length === 0) {
+                            terminalOutput.textContent += `Your cart is empty.\n`;
+                        } else {
+                            terminalOutput.textContent += `Your cart:\n`;
+                            cart.forEach(productId => {
+                                terminalOutput.textContent += `- Product ID ${productId}\n`;
+                            });
+                        }
+                        break;
+                    case 'buy':
+                        if (cart.length > 0) {
+                            const url = `checkout.html?cart=${cart.join(',')}`;
+                            window.location.href = url;
+                        } else {
+                            terminalOutput.textContent += `Your cart is empty.\n`;
+                        }
+                        break;
+
+                    case 'clear':
+                        terminalOutput.textContent = '';
+                        break;
+                    case 'search':
+                        if (args.length) {
+                            const query = args.join(' ');
+                            fetch(apiUrl)
+                                .then(response => response.json())
+                                .then(products => {
+                                    const results = products.filter(product => product.title.toLowerCase().includes(query.toLowerCase()));
+                                    displayProducts(results);
+                                })
+                                .catch(() => {
+                                    terminalOutput.textContent += `Error searching for "${query}".\n`;
+                                });
+                        }
+                        break;
+                    case 'sort':
+                        if (args.length) {
+                            const criteria = args[0];
+                            fetch(apiUrl)
+                                .then(response => response.json())
+                                .then(products => {
+                                    if (criteria === 'price') {
+                                        products.sort((a, b) => a.price - b.price);
+                                    } else if (criteria === 'name') {
+                                        products.sort((a, b) => a.title.localeCompare(b.title));
+                                    }
+                                    displayProducts(products);
+                                })
+                                .catch(() => {
+                                    terminalOutput.textContent += `Error sorting products by "${criteria}".\n`;
+                                });
+                        }
+                        break;
+                    default:
+                        terminalOutput.textContent += `Invalid command: ${cmd}\n`;
+                        break;
+                }
+                terminalInput.value = '';
+            }
+
+            terminalInput.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    const command = terminalInput.value;
+                    handleInput(command);
+                    event.preventDefault(); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>
