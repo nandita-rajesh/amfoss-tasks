@@ -1,3 +1,4 @@
+```
 .
 ├── build
 │   ├── setup-dev-server.js
@@ -49,3 +50,4 @@
 │       ├── ItemView.vue
 │       └── UserView.vue
 └── yarn.lock
+```
