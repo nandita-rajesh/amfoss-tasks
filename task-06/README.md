@@ -1,6 +1,7 @@
 # Vue HackerNews 2.0
 
-The repository used is the vue-hackernews-2.0 application.
+The repository used is the [vue-hackernews-2.0](https://github.com/vuejs/vue-hackernews-2.0)
+ application.
 
 ## Overview
 
