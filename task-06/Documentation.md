@@ -48,13 +48,13 @@ The Vue HackerNews 2.0 application is an application that replicates the HackerN
 
 ### Routes
 
-    /top: Displays the list of top stories.
-    /new: Displays the list of new stories.
-    /show: Displays the list of "Show HN" stories (user-submitted items).
-    /ask: Displays the list of "Ask HN" stories (discussion threads).
-    /job: Displays the list of job postings.
-    /item/:id: Displays the details of a specific news story or item, including comments.
-    /user/:id: Displays the profile of a specific user, including their submitted stories and comments.
+   `/top:` Displays the list of top stories.
+   `/new:` Displays the list of new stories.
+   `/show:` Displays the list of "Show HN" stories (user-submitted items).
+   `/ask:` Displays the list of "Ask HN" stories (discussion threads).
+   `/job:` Displays the list of job postings.
+   `/item/:id:` Displays the details of a specific news story or item, including comments.
+   `/user/:id:` Displays the profile of a specific user, including their submitted stories and comments.
 
 ## Implementation Details
 
