@@ -32,17 +32,19 @@ The Vue HackerNews 2.0 application is an application that replicates the HackerN
         
 ### Vuex Store
 
-    state
-        Contains the state variables like newsList, currentNews, and comments.
-    actions
-        FETCH_LIST_DATA: For fetching lists of story IDs.
-        FETCH_ITEM: For fetching an individual story.
-        FETCH_USER: For fetching user profile data.
-    mutations
-        SET_ACTIVE_TYPE(state, { type }): This mutation sets the current type of news stories that the user is viewing (e.g., "top", "new", "show", "ask", "job"). When a user navigates to a different news category, this mutation updates the activeType to reflect the current selection.
-        SET_LIST(state, { type, ids }): When a list of story IDs is fetched from the API for a specific category (type), such as "top", "new", "show", etc., this mutation stores that list in the state. Each type (e.g., "top", "new") will have its own list of story IDs.
-        SET_ITEMS(state, { items }): This mutation is responsible for caching individual news stories or items in the state. The items are stored in an object format where each item is keyed by its ID. 
-        SET_USER(state, { user }): When a user profile is fetched from the API, this mutation stores that profile in the state.
+#### 1. state  
+   - Contains the state variables like newsList, currentNews, and comments.
+      
+#### 2.actions  
+   - FETCH_LIST_DATA: For fetching lists of story IDs.
+   - FETCH_ITEM: For fetching an individual story.
+   - FETCH_USER: For fetching user profile data.
+        
+#### 3.mutations
+   - SET_ACTIVE_TYPE(state, { type }): This mutation sets the current type of news stories that the user is viewing (e.g., "top", "new", "show", "ask", "job"). When a user navigates to a different news category, this mutation updates the activeType to reflect the current selection.
+   - SET_LIST(state, { type, ids }): When a list of story IDs is fetched from the API for a specific category (type), such as "top", "new", "show", etc., this mutation stores that list in the state. Each type (e.g., "top", "new") will have its own list of story IDs.
+   - SET_ITEMS(state, { items }): This mutation is responsible for caching individual news stories or items in the state. The items are stored in an object format where each item is keyed by its ID. 
+   - SET_USER(state, { user }): When a user profile is fetched from the API, this mutation stores that profile in the state.
 
 ### Routes
 
