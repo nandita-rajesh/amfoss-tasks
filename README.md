@@ -2,7 +2,7 @@
 ### Introduction
 Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursuing B-Tech in Computer Science.
 
-###Task Status
+### Task Status
 | Task List | Description | Status |
 | :--------: | :--------: | :--------: |
 | Task-00 | Install Linux | Completed |
