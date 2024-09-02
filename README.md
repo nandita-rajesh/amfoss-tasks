@@ -2,6 +2,19 @@
 # Introduction
 Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursuing B-Tech in Coomputer Science.
 
+Tasks List 	Description 	Status
+Task-00 	Install Linux 	Completed
+Task-01 	Terminal Wizard 	Completed
+Task-02 	Lessgo Hugo 	Completed
+Task-03 	Hello,World! 	Completed
+Task-04 	Competitive Programming 	Not Attempted
+Task-05 	Hypertext Mockup Language 	Completed
+Task-06 	Cricket Vault 	Completed
+Task-07 	AK-47℃ 	Completed
+Task-08 	Poke-Search! 	Completed
+Task-09 	GeoQuest 	Not Attempted
+Task-10 	RuskOS 	Incomplete
+
 # Why you should choose me
 You should choose me because of my strong passion for software development and problem solving. I am committed to actively participate in all club projects, bringing creativity and dedication to every task. I enjoy learning about new concepts and  technologies, and would love and appreciate working as a team.
 
