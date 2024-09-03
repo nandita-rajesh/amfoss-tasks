@@ -1,1 +1,1 @@
-
+It was a pretty time consuming task as each language had 4 Subtasks. It helped me understand how different programming languages work. However, I was able to complete it by referring to a lot of online resources.
