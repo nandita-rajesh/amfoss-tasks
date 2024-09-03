@@ -1,0 +1,1 @@
+This was one of my most favorite tasks. I installed Flutter and Android Studio, setup the virtual device emulator. This was the first problem I faced. Using the virtual device emulator caused my device to heat up real quick and most applications to stop responding. 
