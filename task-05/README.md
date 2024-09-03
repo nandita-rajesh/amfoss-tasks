@@ -1,1 +1,1 @@
-My interest in web development made this the first task I chose to complete. I started by correcting the error in the js code that was provided. Later, I completed the coding and integrated the API URL into the code. 
+My interest in web development made this the first task I chose to complete. I started by correcting the error in the js code that was provided. Later, I completed the coding and integrated the API URL into the code. Even though it was my first experience with a terminal-based project, and it turned out to be better than I expected.
