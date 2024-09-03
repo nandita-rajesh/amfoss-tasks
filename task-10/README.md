@@ -1,1 +1,1 @@
-
+When I went through the task document and started reading through the resources provided, it seemed to be quite challenging. But as I started working on it, it turned out to be more manageable than I expected. I started coding in python and learned about OpenCV and Pillow. I cloned the repo to get the assets provided and used them in the code and it was successful.  
