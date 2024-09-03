@@ -1,1 +1,1 @@
-
+PagePal was a really engaging task. I atarted off by creating and editing my bot in telegram. After, I obtained an API key from the Google Cloud Console and integrated it into my code, completing the coding in python. Although I faced some issues while working on it, it ultimately turned out to be successful.
