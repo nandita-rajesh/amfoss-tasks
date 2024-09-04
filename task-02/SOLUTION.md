@@ -66,3 +66,19 @@ aHR0cHM6Ly9naXRodWIuY29tL2FtYW5zeGNhbGlidXIvVGVybWluYWwtQ2hhb3MtR29kU3VpdGU=
 ```
 after decoding  
 https://github.com/amansxcalibur/Terminal-Chaos-GodSuite
+
+## Part 5
+
+`$ git clone https://github.com/amansxcalibur/Terminal-Chaos-GodSuite.git`
+
+`$ cd Terminal-Chaos-GodSuite`  
+`$ git log --oneline`  
+
+`$ git show 68c79b2`  
+```
+code: aHR0cHM6Ly9naXRodWIuY29tL2FuZ3JlemljaGF0dGVyYm94L1RvLXRoZS1zdGFycy1hbmQtcmVhbG1zLXVuc2Vlbg==
+```
+after decoding
+https://github.com/angrezichatterbox/To-the-stars-and-realms-unseen
+
+`$ git clone https://github.com/angrezichatterbox/To-the-stars-and-realms-unseen.git`
