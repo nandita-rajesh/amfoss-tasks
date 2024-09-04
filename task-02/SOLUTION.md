@@ -2,19 +2,19 @@
 `$ git clone https://github.com/amansxcalibur/Terminal-Chaos.git`
 
 ## Part 1
-```
-$ cd Terminal-Chaos/Arrakis-dex/'Eolian Caves' 
-$ find . -name '*parchment*
-$ cat Entrance3/01/parchment.txt
-```
+
+`$ cd Terminal-Chaos/Arrakis-dex/'Eolian Caves' `
+`$ find . -name '*parchment*'`
+`$ cat Entrance3/01/parchment.txt`
+
 
 code1: aHR0cHM6Ly9naXRo
 
 ## Part 2
 
-$ git branch -a  
-$ git checkout remotes/origin/The-Light-Realm  
-$ grep -rEl 'holy.*good|good.*holy'  
+`$ git branch -a`
+`$ git checkout remotes/origin/The-Light-Realm`
+`$ grep -rEl 'holy.*good|good.*holy'`
 
 Moonbloom.txt   
 Moonbloom.txt  
