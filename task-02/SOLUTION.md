@@ -22,8 +22,9 @@ Mistveil.txt
 
 Holy spell: LnnmknnlLhrsdhk
 
-$ git checkout origin/The-Dark-Realm-I
-$ tree
+`$ git checkout origin/The-Dark-Realm-I`
+`$ tree`
+
 ```
 .
 ├── Celestial Veil Amulet.txt
