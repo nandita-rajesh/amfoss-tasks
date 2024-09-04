@@ -57,3 +57,12 @@ code3: GNhbGlidXIvVGVyb
 ```
 code4: WluYWwtQ2hhb3MtR29kU3VpdGU=
 ```
+
+## Part 4
+
+combined code
+```
+aHR0cHM6Ly9naXRodWIuY29tL2FtYW5zeGNhbGlidXIvVGVybWluYWwtQ2hhb3MtR29kU3VpdGU=
+```
+after decoding  
+https://github.com/amansxcalibur/Terminal-Chaos-GodSuite
