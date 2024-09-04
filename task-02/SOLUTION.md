@@ -38,3 +38,22 @@ Celestial Veil Amulet: CSigVmaroAn
 ```
 code2: dWIuY29tL2FtYW5ze
 ```
+
+## Part 3
+
+`$ cd Entrance3/01/01L/01/02/01/02/01/Citadel`  
+`$ python3 -u "KharnokTheBloodForged.py"`  
+UNLOCKED LIGHT REALM
+
+`$ python3 -u "chest1.py"`  
+`$ cat DarkBookI.txt`  
+```
+code3: GNhbGlidXIvVGVyb
+```
+
+`$ git checkout The-Dark-Realm-II`  
+`$ cd 'Eolian Caves'/Entrance3/01/01D/01/'narrow path'/path/0D/02/01/Chamber`  
+`$ cat DarkBookII.txt`  
+```
+code4: WluYWwtQ2hhb3MtR29kU3VpdGU=
+```
