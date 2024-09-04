@@ -7,7 +7,7 @@ Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursu
 | :--------: | :--------: | :--------: |
 | Task-00 | Install Linux | Completed |
 | Task-01 | Type Maestro | Completed |
-| Task-02 | Terminal Chaos |  |
+| Task-02 | Terminal Chaos | Completed |
 | Task-03 | Hello, World! | Completed |
 | Task-04 | Gopal and his PagePal | Completed |
 | Task-05 | TerminalTrolly | Completed |
