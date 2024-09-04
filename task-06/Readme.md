@@ -1,0 +1,1 @@
+I began by cloning the Vue Hackernews repository and created a README file outlining the project’s basic details and setup instructions. To capture the directory structure, I used the `tree` command in the terminal. Crafting the documentation required me to delve deeper into the project, gaining a thorough understanding of its functionality and features.
