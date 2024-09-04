@@ -5,17 +5,17 @@ Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursu
 ### Task Status
 | Task List | Description | Status |
 | :--------: | :--------: | :--------: |
-| [Task-00](#Task-00) | Install Linux | Completed |
-| [Task-01](#Task-01) | Type Maestro | Completed |
-| [Task-02](#Task-02) | Terminal Chaos | Completed |
-| [Task-03](#Task-03) | Hello, World! | Completed |
-| [Task-04](#Task-04) | Gopal and his PagePal | Completed |
-| [Task-05](#Task-05) | TerminalTrolly | Completed |
-| [Task-06](#Task-06) | OpenDocs | Completed |
-| [Task-07](#Task-07) | Pirate's Dilemma |  |
-| [Task-08](#Task-08) | Blog Burst | Completed |
-| [Task-09](#Task-09) | HERO-DEX! | Completed |
-| [Task-10](#Task-10) | Operation Pixel Merge | Completed |
+| [Task-00](Task-00/) | Install Linux | Completed |
+| [Task-01](Task-01/) | Type Maestro | Completed |
+| [Task-02](Task-02/) | Terminal Chaos | Completed |
+| [Task-03](Task-03/) | Hello, World! | Completed |
+| [Task-04](Task-04/) | Gopal and his PagePal | Completed |
+| [Task-05](Task-05/) | TerminalTrolly | Completed |
+| [Task-06](Task-06/) | OpenDocs | Completed |
+| [Task-07](Task-07/) | Pirate's Dilemma |  |
+| [Task-08](Task-08/) | Blog Burst | Completed |
+| [Task-09](Task-09/) | HERO-DEX! | Completed |
+| [Task-10](Task-10/) | Operation Pixel Merge | Completed |
 
 
 ### Why you should choose me
