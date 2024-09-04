@@ -7,9 +7,9 @@
 `$ find . -name '*parchment*'`  
 `$ cat Entrance3/01/parchment.txt`  
 
-
+```
 code1: aHR0cHM6Ly9naXRo
-
+```
 ## Part 2
 
 `$ git branch -a`  
@@ -35,4 +35,6 @@ Holy spell: LnnmknnlLhrsdhk
 Celestial Veil Amulet: CSigVmaroAn
 
 `$ cat "LightBook.txt"`  
+```
 code2: dWIuY29tL2FtYW5ze
+```
