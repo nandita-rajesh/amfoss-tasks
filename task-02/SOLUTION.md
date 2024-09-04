@@ -16,9 +16,9 @@ $ git branch -a
 $ git checkout remotes/origin/The-Light-Realm  
 $ grep -rEl 'holy.*good|good.*holy'  
 
+Moonbloom.txt   
 Moonbloom.txt  
-Moonbloom.txt 
-Mistveil.txt  
+Mistveil.txt   
 
 Holy spell: LnnmknnlLhrsdhk
 
