@@ -15,9 +15,9 @@ $ git branch -a
 $ git checkout remotes/origin/The-Light-Realm  
 $ grep -rEl 'holy.*good|good.*holy'  
 
-Moonbloom.txt
-Moonbloom.txt
-Mistveil.txt
+Moonbloom.txt  
+Moonbloom.txt 
+Mistveil.txt  
 
 Holy spell: LnnmknnlLhrsdhk
 
@@ -29,8 +29,8 @@ $ tree
 └── LightBook.txt
 ```
 
-`$ cat "Celestial Veil Amulet.txt"`
+`$ cat "Celestial Veil Amulet.txt"`  
 Celestial Veil Amulet: CSigVmaroAn
 
-`$ cat "LightBook.txt"`
+`$ cat "LightBook.txt"`  
 code2: dWIuY29tL2FtYW5ze
