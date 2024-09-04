@@ -1,1 +1,1 @@
-
+This non-technical task was a huge sign of relief after seeing the other tasks. I decided to write about the superhero encyclopedia app project. Crafting a blog on a task I had completed was pretty straightforward and enjoyable. 
