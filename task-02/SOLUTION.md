@@ -11,7 +11,7 @@ Moved into Eolian Caves and searched for parchment.
 code1: aHR0cHM6Ly9naXRo
 ```
 ## Part 2
-Moved into The light Realm Directory and searched for filenames which have both “holy" and "good” inside their content.  
+Moved into The Light Realm Directory and searched for filenames which have both “holy" and "good” inside their content.  
 `$ git branch -a`  
 `$ git checkout remotes/origin/The-Light-Realm`  
 `$ grep -rEl 'holy.*good|good.*holy'`  
