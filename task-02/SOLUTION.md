@@ -2,7 +2,7 @@
 `$ git clone https://github.com/amansxcalibur/Terminal-Chaos.git`
 
 ## Part 1
-
+Moved into Eolian Caves and searched for parchment.  
 `$ cd Terminal-Chaos/Arrakis-dex/'Eolian Caves' `  
 `$ find . -name '*parchment*'`  
 `$ cat Entrance3/01/parchment.txt`  
@@ -11,7 +11,7 @@
 code1: aHR0cHM6Ly9naXRo
 ```
 ## Part 2
-
+Moved into The light Realm Directory and searched for filenames which have both “holy" and "good” inside their content.  
 `$ git branch -a`  
 `$ git checkout remotes/origin/The-Light-Realm`  
 `$ grep -rEl 'holy.*good|good.*holy'`  
@@ -43,6 +43,7 @@ code2: dWIuY29tL2FtYW5ze
 
 `$ cd Entrance3/01/01L/01/02/01/02/01/Citadel`  
 `$ python3 -u "KharnokTheBloodForged.py"`  
+DEMIGOD FELLED  
 UNLOCKED LIGHT REALM
 
 `$ python3 -u "chest1.py"`  
@@ -78,7 +79,7 @@ https://github.com/amansxcalibur/Terminal-Chaos-GodSuite
 ```
 code: aHR0cHM6Ly9naXRodWIuY29tL2FuZ3JlemljaGF0dGVyYm94L1RvLXRoZS1zdGFycy1hbmQtcmVhbG1zLXVuc2Vlbg==
 ```
-after decoding
+after decoding  
 https://github.com/angrezichatterbox/To-the-stars-and-realms-unseen
 
 `$ git clone https://github.com/angrezichatterbox/To-the-stars-and-realms-unseen.git`
