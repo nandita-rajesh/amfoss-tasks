@@ -2,10 +2,11 @@
 `$ git clone https://github.com/amansxcalibur/Terminal-Chaos.git`
 
 ## Part 1
-
-`$ cd Terminal-Chaos/Arrakis-dex/'Eolian Caves'  
-`$ find . -name '*parchment*'
-`$ cat Entrance3/01/parchment.txt`
+```
+$ cd Terminal-Chaos/Arrakis-dex/'Eolian Caves' 
+$ find . -name '*parchment*
+$ cat Entrance3/01/parchment.txt
+```
 
 code1: aHR0cHM6Ly9naXRo
 
