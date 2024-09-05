@@ -1,112 +1,141 @@
-import click
 import os
-import tempfile
+import time
 import requests
-import hashlib
 from bs4 import BeautifulSoup
-from imdb import IMDb
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from urllib.parse import urljoin
+import hashlib
 
-def get_imdb_id(filename):
-    ia = IMDb()
-    search = ia.search_movie(os.path.basename(filename))
-    if search:
-        return search[0].movieID
-    return None
+def get_imdb_id(movie_file):
+    return "0059646"  # Example
 
-def get_movie_hash_and_size(filename):
-    readsize = 64 * 1024
-    with open(filename, 'rb') as f:
-        size = os.path.getsize(filename)
-        data = f.read(readsize)
-        f.seek(-readsize, os.SEEK_END)
-        data += f.read(readsize)
-    return hashlib.md5(data).hexdigest(), size
+def compute_hash(file_path):
+    """Compute the hash of the given file for hash-based matching."""
+    hash_md5 = hashlib.md5()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
 
-def find_subtitles(filename, language, file_size=None, match_by_hash=False):
-    imdb_id = get_imdb_id(filename)
+def scrape_subtitles(imdb_id, language, file_size=None, match_by_hash=None):
     if not imdb_id:
+        print("No IMDb ID found. Please check the movie filename.")
         return []
 
-    movie_hash, movie_size = get_movie_hash_and_size(filename) if match_by_hash else (None, None)
-    
-    search_url = f"https://www.opensubtitles.org/en/search2/sublanguageid-{language}/imdbid-{imdb_id}"
-    if match_by_hash:
-        search_url += f"/moviehash-{movie_hash}/moviesize-{movie_size}"
+    url = f"https://www.opensubtitles.org/en/search2/sublanguageid-{language}/imdbid-{imdb_id}/sort-7"
 
-    response = requests.get(search_url)
-    soup = BeautifulSoup(response.content, 'html.parser')
+    chrome_options = Options()
+    chrome_options.add_argument("--headless") 
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    
+    driver.get(url)
+    
+    time.sleep(10) 
+
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(5) 
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    driver.quit()
+
+    rows = soup.select("table#search_results tbody tr")
+    print(f"Number of rows found: {len(rows)}")
 
     subtitles = []
-    for subtitle in soup.find_all('tr', class_='change'):
-        subtitle_info = {
-            'name': subtitle.find('td', class_='bnone').text.strip(),
-            'language': language,
-            'download_link': subtitle.find('a', {'id': 'bt-dwl-bt'})['href']
+    seen_links = set() 
+    seen_titles = set()  
+
+    for row in rows:
+        title_element = row.select_one("td a[href^='/en/subtitles/']")
+        if not title_element:
+            continue
+
+        title = title_element.get_text(strip=True)
+        if title in seen_titles: 
+            continue
+        seen_titles.add(title)
+
+        subtitle_data = {
+            "title": title,
+            "link": urljoin("https://www.opensubtitles.org", title_element['href'])
         }
-        subtitles.append(subtitle_info)
 
-    return sorted(subtitles, key=lambda x: x['name'])
+        language_element = row.select_one("td a[href^='/en/search/imdbid-']")
+        subtitle_data["language"] = language_element.get_text(strip=True) if language_element else "N/A"
 
-def download_file(url, local_filename):
-    response = requests.get(url, stream=True)
-    total_size = int(response.headers.get('content-length', 0))
-    with open(local_filename, 'wb') as f:
-        for chunk in response.iter_content(chunk_size=1024):
-            if chunk:
-                f.write(chunk)
-                # Show progress
-                done = int(50 * f.tell() / total_size)
-                print(f"\r[{'=' * done}{' ' * (50 - done)}] {f.tell() / 1024:.2f} KB / {total_size / 1024:.2f} KB", end='')
-    print("\nDownload complete")
+        date_element = row.select_one("td time")
+        subtitle_data["date"] = date_element.get_text(strip=True) if date_element else "N/A"
 
-def download_subtitle(subtitle, output):
-    subtitle_url = subtitle['download_link']
-    subtitle_name = subtitle['name']
-    local_filename = os.path.join(output, f"{subtitle_name}.srt")
-    
-    print(f"Downloading {subtitle_name}...")
-    download_file(subtitle_url, local_filename)
-    print(f"Downloaded {subtitle_name} to {output}")
+        download_link_element = row.select_one("td a[href^='/en/subtitleserve/']")
+        if download_link_element:
+            full_download_link = urljoin("https://www.opensubtitles.org", download_link_element['href'])
+            if full_download_link not in seen_links:
+                seen_links.add(full_download_link)
+                subtitle_data["download_link"] = full_download_link
+                
+                if file_size:
+                    size_str = row.select_one("td.size").get_text(strip=True) if row.select_one("td.size") else None
+                    if size_str and "MB" in size_str:  
+                        size_in_mb = float(size_str.replace("MB", "").strip())
+                        if size_in_mb > file_size:
+                            print(f"Skipping {title} due to size {size_in_mb}MB > {file_size}MB")
+                            continue
+                
+                subtitles.append(subtitle_data)
 
-@click.command()
-@click.argument('input_path')
-@click.option('-l', '--language', default='en', help='Filter subtitles by language.')
-@click.option('-o', '--output', default='subtitles', type=click.Path(), help='Specify the output folder for the subtitles.')
-@click.option('-s', '--file-size', type=int, help='Filter subtitles by movie file size.')
-@click.option('-h', '--match-by-hash', is_flag=True, help='Match subtitles by movie hash.')
-@click.option('-b', '--batch-download', is_flag=True, help='Enable batch mode.')
-def main(input_path, language, output, file_size, match_by_hash, batch_download):
-    if input_path.startswith("http://") or input_path.startswith("https://"):
-        response = requests.get(input_path, stream=True)
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as temp_file:
-            for chunk in response.iter_content(chunk_size=1024):
-                if chunk:
-                    temp_file.write(chunk)
-            temp_filename = temp_file.name
-        click.echo(f"Downloaded temporary video file to {temp_filename}")
-        
-        subtitles = find_subtitles(temp_filename, language, file_size, match_by_hash)
-        os.remove(temp_filename)
-        
-    elif os.path.isdir(input_path) and batch_download:
-        for movie_file in os.listdir(input_path):
-            if movie_file.endswith(".mp4"):
-                subtitles = find_subtitles(os.path.join(input_path, movie_file), language, file_size, match_by_hash)
-                if subtitles:
-                    download_subtitle(subtitles[0], output)
+    return subtitles
+
+def main(movie_file, language, output, file_size=None, match_by_hash=None):
+    imdb_id = get_imdb_id(movie_file)
+    print(f"Extracted IMDb ID: {imdb_id}")
+
+    if not imdb_id:
+        print("Failed to extract IMDb ID from the movie file.")
         return
-    else:
-        subtitles = find_subtitles(input_path, language, file_size, match_by_hash)
-    
-    if subtitles:
-        for idx, subtitle in enumerate(subtitles):
-            click.echo(f"{idx + 1}. {subtitle['name']} - {subtitle['language']}")
-        
-        choice = click.prompt("Choose a subtitle to download", type=int)
-        selected_subtitle = subtitles[choice - 1]
-        download_subtitle(selected_subtitle, output)
-    else:
-        click.echo("No subtitles found.")
 
-if __name__ == '__main__':
-    main()
+    if match_by_hash:
+        file_hash = compute_hash(movie_file)
+        print(f"Computed hash for {movie_file}: {file_hash}")
+    
+    subtitles = scrape_subtitles(imdb_id, language, file_size, match_by_hash)
+
+    if not subtitles:
+        print("No subtitles found for the provided criteria.")
+        return
+
+    os.makedirs(output, exist_ok=True)
+    downloaded_files = set() 
+
+    for subtitle in subtitles:
+        if "download_link" in subtitle:
+            subtitle_title = subtitle["title"].replace("/", "_").replace(":", "_").replace("(", "").replace(")", "").strip()
+            subtitle_file = os.path.join(output, f"{imdb_id}_{subtitle_title}_{subtitle['language']}.srt")
+
+            if subtitle_file in downloaded_files:
+                print(f"File already exists: {subtitle_file}")
+                continue
+
+            print(f"Attempting to download: {subtitle_file}")
+
+            subtitle_response = requests.get(subtitle["download_link"], stream=True)
+            if subtitle_response.status_code == 200:
+                with open(subtitle_file, "wb") as file:
+                    for chunk in subtitle_response.iter_content(chunk_size=8192):
+                        if chunk:
+                            file.write(chunk)
+                downloaded_files.add(subtitle_file)  # Add to the set of downloaded files
+                print(f"Downloaded: {subtitle_file}")
+            else:
+                print(f"Failed to download: {subtitle_file} (HTTP Status: {subtitle_response.status_code})")
+
+if __name__ == "__main__":
+    movie_file = "plan-9-from-outer-space.mp4"
+    language = "eng"  
+    output = "./subtitles"
+    file_size = 2.0  
+    match_by_hash = True 
+
+    main(movie_file, language, output, file_size, match_by_hash)
