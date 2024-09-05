@@ -1,1 +1,1 @@
-I was not able to complete this task. But I've uploaded how much I completed. 
+I was not able to complete this task. But I've uploaded how much I completed. One of the issue I faced was that the code was not able to IMDB ID. So, I tried to code specifically for the given movie and this ran into a 429 error.
