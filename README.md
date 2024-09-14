@@ -1,6 +1,6 @@
 # amfoss-tasks
 ### Introduction
-Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursuing B-Tech in Computer Science.
+Heyy! I'm Nandita Rajesh from Trivandrum, Kerala. I am currently an S3 student in Amrita Vishwa Vidyapeetham pursuing B-Tech in Computer Science. I first learned about amFOSS during the induction program in my first year, and I’m genuinely excited about the opportunity to join. I’m eager to contribute and collaborate with the team.
 
 ### Task Status
 | Task List | Description | Status |
