@@ -7,6 +7,7 @@ from docx.opc.exceptions import PackageNotFoundError
 import requests
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
+from keys import BOT_TOKEN, GOOGLE_BOOKS_API_KEY
 
 TOKEN: Final = '7523879986:AAGRJgc9zulWSKhMAiumYTiqROkUK0xGcCg'
 BOT_USERNAME: Final = '@PagePalBot_bot'
