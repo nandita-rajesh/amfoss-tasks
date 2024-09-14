@@ -12,7 +12,7 @@ Heyy! I'm Nandita Rajesh. I am an S3 student in Amrita Vishwa Vidyapeetham pursu
 | [Task-04](task-04/) | Gopal and his PagePal | Completed |
 | [Task-05](task-05/) | TerminalTrolly | Completed |
 | [Task-06](task-06/) | OpenDocs | Completed |
-| [Task-07](task-07/) | Pirate's Dilemma |  |
+| [Task-07](task-07/) | Pirate's Dilemma | Partially Completed |
 | [Task-08](task-08/) | Blog Burst | Completed |
 | [Task-09](task-09/) | HERO-DEX! | Completed |
 | [Task-10](task-10/) | Operation Pixel Merge | Completed |
